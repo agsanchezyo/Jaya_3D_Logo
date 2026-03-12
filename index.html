@@ -35,8 +35,17 @@
     document.body.appendChild(renderer.domElement);
 
     // Lighting
-    const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+    // Lighting
+    const ambientLight = new THREE.AmbientLight(0xffffff, 0.3);
     scene.add(ambientLight);
+
+    const directionalLight = new THREE.DirectionalLight(0xffffff, 1.5);
+    directionalLight.position.set(2, 3, 4);
+    scene.add(directionalLight);
+
+    const fillLight = new THREE.DirectionalLight(0xffffff, 0.4);
+    fillLight.position.set(-2, -1, -3);
+    scene.add(fillLight);
 
     // Orbit controls with idle rotation
     const controls = new THREE.OrbitControls(camera, renderer.domElement);
